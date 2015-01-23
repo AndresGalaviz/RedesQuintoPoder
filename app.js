@@ -55,6 +55,9 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
+var ghost = require('ghost');
+ghost().then(function (ghostServer) {
+    ghostServer.start();
+});
 
 module.exports = app;
