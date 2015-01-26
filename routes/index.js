@@ -7,15 +7,10 @@ var ghost     = require('ghost');
 var path      = require('path');
 
 // Route /blog* to Ghost
-router.use("/ghost/", function(req, res){ 
-    blogProxy.web(req, res, { target: 'http://localhost:2368' });
-});
-ghost({config: path.join(__dirname, '../ghost/config.js')}).then(function (ghostServer) {
-     ghostServer.start();
-});
 router.use("/blog/", function(req, res){ 
-    blogProxy.web(req, res, { target: 'http://blogrqpidea.azurewebsites.net' });
+    blogProxy.web(req, res, { target: 'http://blogrqpidea.azurewebsites.net/' });
 });
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
